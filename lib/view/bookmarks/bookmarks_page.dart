@@ -14,6 +14,7 @@ class _BookMarksPageState extends State<BookMarksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0XFFEEFAFF),
       body: ListCards(),
     );
   }

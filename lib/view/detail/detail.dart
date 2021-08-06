@@ -9,9 +9,8 @@ class DetailPage extends StatefulWidget {
   DetailPage(this.item);
 
   final Place item;
+
   final placeRepository = Get.find<FakeGet>();
-
-
 
   @override
   _DetailPageState createState() => _DetailPageState();
@@ -31,7 +30,7 @@ class _DetailPageState extends State<DetailPage> {
           children: [
             Container(
               height: 300,
-                child: GoogleMapPage(widget.item)),
+                child: GoogleMapPage(placeRepository)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -46,7 +45,7 @@ class _DetailPageState extends State<DetailPage> {
                 SizedBox(height: 10),
                 Text('주소 : ${placeRepository.address}',style: TextStyle(fontSize: 20,color: Colors.blue),),
                 SizedBox(height: 10),
-                Text('전화번호 :${placeRepository.num}',style: TextStyle(fontSize: 20,color: Colors.blue),),
+                Text('전화번호 :${placeRepository.nums}',style: TextStyle(fontSize: 20,color: Colors.blue),),
               ],
             ),
           ],

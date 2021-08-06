@@ -4,24 +4,29 @@ class Place {
   String? address;
   String? price;
   String? fish;
-  String? num;
+  String? nums;
   String? structure;
-  String? lat;
-  String? lon;
+  double? lat;
+  double? lon;
+  num? km;
 
-  Place(this.title, this.type, this.address, this.price, this.fish, this.num,
+  Place(this.title, this.type, this.address, this.price, this.fish, this.nums,
       this.structure,this.lat,this.lon);
 
+
+
+
+  //TODO 나중에 api 받을 때 핸들링 할 부분
   Place.fromJson(dynamic json) {
     title = json["fshlcNm"];
     type = json["fshlcType"];
     address = json["rdnmadr"];
     price = json["useCharge"];
     fish = json["kdfsh"];
-    num = json["fshlcPhoneNumber"];
+    nums = json["fshlcPhoneNumber"];
     structure = json["wtrcFcltyType"];
-    lat = json["latitude"];
-    lon = json["longitude"];
+    lat = json["latitude"].toDouble();
+    lon = json["longitude"].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -31,10 +36,10 @@ class Place {
     map["rdnmadr"] = address;
     map["useCharge"] = price;
     map["kdfsh"] = fish;
-    map["fshlcPhoneNumber"] = num;
+    map["fshlcPhoneNumber"] = nums;
     map["wtrcFcltyType"] = structure;
-    map["latitude"] = lat as double;
-    map["longitude"] = lon as double;
+    map["latitude"] = lat ;
+    map["longitude"] = lon ;
     return map;
   }
 }

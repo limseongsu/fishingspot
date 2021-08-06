@@ -223,8 +223,8 @@ class Items {
     _fshlcType = json["fshlcType"];
     _rdnmadr = json["rdnmadr"];
     _lnmadr = json["lnmadr"];
-    _latitude = json["latitude"];
-    _longitude = json["longitude"];
+    _latitude = json["latitude"].toDouble();
+    _longitude = json["longitude"].toDouble();
     _fshlcPhoneNumber = json["fshlcPhoneNumber"];
     _waterAr = json["waterAr"];
     _kdfsh = json["kdfsh"];

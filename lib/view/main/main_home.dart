@@ -23,6 +23,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0XFFEEFAFF),
       appBar: NewGradientAppBar(
         title: Text(
           '어 항',

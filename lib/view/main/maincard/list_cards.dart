@@ -3,6 +3,8 @@ import 'package:fishingspot/view/detail/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+import 'package:favorite_button/favorite_button.dart';
+
 
 class ListCards extends StatelessWidget {
   final placeRepository = Get.find<FakeGet>();
@@ -31,10 +33,18 @@ class ListCards extends StatelessWidget {
                     Get.to(DetailPage(placeRepository.items[index]));
                   },
                   child: Card(
-                    child: ListTile(
-                      title: Text('${placeRepository.items[index].title}'),
-                      subtitle: Text('${placeRepository.items[index].price}'),
-                      trailing: Icon(Icons.bookmark),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text('${placeRepository.items[index].title}'),
+                          subtitle: Text('${placeRepository.items[index].price}'),
+                          trailing: FavoriteButton(
+                              isFavorite: false,
+                            iconColor: Colors.red,
+                              valueChanged: (){
+                          }),
+                        ),
+                      ],
                     ),
                   ),
                 ),

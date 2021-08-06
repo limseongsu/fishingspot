@@ -22,7 +22,7 @@ Card SliderCard(Place item) {
               end: Alignment.bottomRight),
         ),
         width: 400,
-        height: 200,
+        height: 160,
         child: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Column(
@@ -53,10 +53,10 @@ Card SliderCard(Place item) {
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 35),
-                child: Text('전화번호 : ${item.num!}',
+                child: Text('전화번호 : ${item.nums!}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 13),
               Center(
                 child: Text(
                   '※정보가 변동되었을 수 있습니다.',
