@@ -1,4 +1,4 @@
-import 'package:fishingspot/repository/fake_getx.dart';
+import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:fishingspot/viewmodel/location_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +7,7 @@ import 'view/splashscreen/splash_page.dart';
 
 
 void main() {
-  Get.put<FakeGet>(FakeGet());
+  Get.put<ApiViewModel>(ApiViewModel());
   Get.put<LocationViewModel>(LocationViewModel());
   runApp(
       GetMaterialApp(

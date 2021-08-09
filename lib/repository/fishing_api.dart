@@ -133,18 +133,18 @@ class Body {
 /// insttCode : "4610000"
 
 class Items {
-  String? _fshlcNm;
-  String? _fshlcType;
-  String? _rdnmadr;
+  String? _title;
+  String? _type;
+  String? _address;
   String? _lnmadr;
-  String? _latitude;
-  String? _longitude;
-  String? _fshlcPhoneNumber;
+  String? _lat;
+  String? _lon;
+  String? _nums;
   String? _waterAr;
-  String? _kdfsh;
+  String? _fish;
   String? _aceptncCo;
-  String? _wtrcFcltyType;
-  String? _useCharge;
+  String? _structure;
+  String? _price;
   String? _mainPoint;
   String? _safentl;
   String? _cvntl;
@@ -154,18 +154,18 @@ class Items {
   String? _referenceDate;
   String? _insttCode;
 
-  String? get fshlcNm => _fshlcNm;
-  String? get fshlcType => _fshlcType;
-  String? get rdnmadr => _rdnmadr;
+  String? get fshlcNm => _title;
+  String? get fshlcType => _type;
+  String? get rdnmadr => _address;
   String? get lnmadr => _lnmadr;
-  String? get latitude => _latitude;
-  String? get longitude => _longitude;
-  String? get fshlcPhoneNumber => _fshlcPhoneNumber;
+  String? get latitude => _lat;
+  String? get longitude => _lon;
+  String? get fshlcPhoneNumber => _nums;
   String? get waterAr => _waterAr;
-  String? get kdfsh => _kdfsh;
+  String? get kdfsh => _fish;
   String? get aceptncCo => _aceptncCo;
-  String? get wtrcFcltyType => _wtrcFcltyType;
-  String? get useCharge => _useCharge;
+  String? get wtrcFcltyType => _structure;
+  String? get useCharge => _price;
   String? get mainPoint => _mainPoint;
   String? get safentl => _safentl;
   String? get cvntl => _cvntl;
@@ -180,8 +180,8 @@ class Items {
       String? fshlcType, 
       String? rdnmadr, 
       String? lnmadr, 
-      String? latitude, 
-      String? longitude, 
+      double? latitude,
+      double? longitude,
       String? fshlcPhoneNumber, 
       String? waterAr, 
       String? kdfsh, 
@@ -196,18 +196,18 @@ class Items {
       String? institutionNm, 
       String? referenceDate, 
       String? insttCode}){
-    _fshlcNm = fshlcNm;
-    _fshlcType = fshlcType;
-    _rdnmadr = rdnmadr;
+    _title = fshlcNm;
+    _type = fshlcType;
+    _address = rdnmadr;
     _lnmadr = lnmadr;
-    _latitude = latitude;
-    _longitude = longitude;
-    _fshlcPhoneNumber = fshlcPhoneNumber;
+    _lat = latitude as String?;
+    _lon = longitude as String?;
+    _nums = fshlcPhoneNumber;
     _waterAr = waterAr;
-    _kdfsh = kdfsh;
+    _fish = kdfsh;
     _aceptncCo = aceptncCo;
-    _wtrcFcltyType = wtrcFcltyType;
-    _useCharge = useCharge;
+    _structure = wtrcFcltyType;
+    _price = useCharge;
     _mainPoint = mainPoint;
     _safentl = safentl;
     _cvntl = cvntl;
@@ -219,18 +219,18 @@ class Items {
 }
 
   Items.fromJson(dynamic json) {
-    _fshlcNm = json["fshlcNm"];
-    _fshlcType = json["fshlcType"];
-    _rdnmadr = json["rdnmadr"];
+    _title = json["fshlcNm"];
+    _type = json["fshlcType"];
+    _address = json["rdnmadr"];
     _lnmadr = json["lnmadr"];
-    _latitude = json["latitude"].toDouble();
-    _longitude = json["longitude"].toDouble();
-    _fshlcPhoneNumber = json["fshlcPhoneNumber"];
+    _lat = json["latitude"];
+    _lon = json["longitude"];
+    _nums = json["fshlcPhoneNumber"];
     _waterAr = json["waterAr"];
-    _kdfsh = json["kdfsh"];
+    _fish = json["kdfsh"];
     _aceptncCo = json["aceptncCo"];
-    _wtrcFcltyType = json["wtrcFcltyType"];
-    _useCharge = json["useCharge"];
+    _structure = json["wtrcFcltyType"];
+    _price = json["useCharge"];
     _mainPoint = json["mainPoint"];
     _safentl = json["safentl"];
     _cvntl = json["cvntl"];
@@ -243,18 +243,18 @@ class Items {
 
   Map<String, dynamic> toJson() {
     var map = <String, dynamic>{};
-    map["fshlcNm"] = _fshlcNm;
-    map["fshlcType"] = _fshlcType;
-    map["rdnmadr"] = _rdnmadr;
+    map["fshlcNm"] = _title;
+    map["fshlcType"] = _type;
+    map["rdnmadr"] = _address;
     map["lnmadr"] = _lnmadr;
-    map["latitude"] = _latitude;
-    map["longitude"] = _longitude;
-    map["fshlcPhoneNumber"] = _fshlcPhoneNumber;
+    map["latitude"] = _lat;
+    map["longitude"] = _lon;
+    map["fshlcPhoneNumber"] = _nums;
     map["waterAr"] = _waterAr;
-    map["kdfsh"] = _kdfsh;
+    map["kdfsh"] = _fish;
     map["aceptncCo"] = _aceptncCo;
-    map["wtrcFcltyType"] = _wtrcFcltyType;
-    map["useCharge"] = _useCharge;
+    map["wtrcFcltyType"] = _structure;
+    map["useCharge"] = _price;
     map["mainPoint"] = _mainPoint;
     map["safentl"] = _safentl;
     map["cvntl"] = _cvntl;

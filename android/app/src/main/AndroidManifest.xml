@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fishingspot">
-
+    package="com.lss.fishingspot">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <!-- 포그라운드 위치 필요성 선언 -->
@@ -12,7 +11,7 @@
     <!-- http 도 허용하기 위해 application 속성값에 추가한 것 제거android:networkSecurityConfig="@xml/network_security_config" -->
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="fishingspot">
+        android:label="어항">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

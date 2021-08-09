@@ -1,14 +1,18 @@
-import 'package:fishingspot/repository/fake_getx.dart';
+import 'package:fishingspot/data/model/place_model.dart';
+import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:fishingspot/view/main/maincard/list_cards.dart';
+import 'package:fishingspot/viewmodel/location_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'mainbodyitems/carousel_slider.dart';
 
 class MainBody extends StatelessWidget {
-  final placeRepository = Get.find<FakeGet>();
+  final apiViewModel = Get.find<ApiViewModel>();
+
   @override
   Widget build(BuildContext context) {
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +26,7 @@ class MainBody extends StatelessWidget {
             ),
           ),
           Divider(),
-          Carousel(),
+          Carousel(apiViewModel),
           Divider(),
           Text('전체 목록',
           style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),

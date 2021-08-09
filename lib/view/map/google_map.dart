@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:fishingspot/data/model/place_model.dart';
+import 'package:fishingspot/repository/fishing_api.dart';
+import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:fishingspot/viewmodel/location_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +9,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class GoogleMapPage extends StatefulWidget {
   GoogleMapPage(this.item);
 
-  final Place item;
+  final Items item;
 
   @override
   State<GoogleMapPage> createState() => GoogleMapPageState();
@@ -23,20 +24,19 @@ class GoogleMapPageState extends State<GoogleMapPage> {
     // TODO: implement initState
     super.initState();
     _kLake = CameraPosition(
-        target: LatLng(widget.item.lat!, widget.item.lon!),
+        target: LatLng(double.parse('${widget.item.latitude!}'), double.parse('${widget.item.longitude!}')),
         tilt: 20,
         zoom: 16);
     _markers.add(Marker(
         markerId: MarkerId("1"),
         draggable: true,
         onTap: () => print("Marker!"),
-        position: LatLng(widget.item.lat!,widget.item.lon!)));
+        position: LatLng(double.parse('${widget.item.latitude!}'), double.parse('${widget.item.longitude!}')),));
   }
 
 
   @override
   Widget build(BuildContext context) {
-    final Place place = widget.item;
     final locate = Get.find<LocationViewModel>();
 
     return Scaffold(
@@ -48,7 +48,7 @@ class GoogleMapPageState extends State<GoogleMapPage> {
                 target: LatLng(1, -1),
               )
             : CameraPosition(
-                target: LatLng(place.lat!, place.lon!),
+                target: LatLng(double.parse('${widget.item.latitude!}'), double.parse('${widget.item.longitude!}')),
               ),
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);

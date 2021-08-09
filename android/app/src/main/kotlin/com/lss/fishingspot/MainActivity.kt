@@ -1,4 +1,4 @@
-package com.example.fishingspot
+package com.lss.fishingspot
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,9 +1,11 @@
-import 'package:fishingspot/data/model/place_model.dart';
+
+import 'package:fishingspot/viewmodel/api_view_model.dart';
+import 'package:fishingspot/repository/fishing_api.dart';
 import 'package:fishingspot/view/detail/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Card SliderCard(Place item) {
+Card SliderCard(Items item) {
   return Card(
     elevation: 3,
     shape: RoundedRectangleBorder(
@@ -29,31 +31,31 @@ Card SliderCard(Place item) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                  child: Text(item.title!,
+                  child: Text('${item.fshlcNm}',
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold))),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 35),
-                child: Text('주소 : ${item.address!}',
+                child: Text('주소 : ${item.rdnmadr}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 35),
-                child: Text('유형 : ${item.type!}',
+                child: Text('유형 : ${item.fshlcType}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 35),
-                child: Text('가격 : ${item.price!}',
+                child: Text('가격 : ${item.useCharge}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 35),
-                child: Text('전화번호 : ${item.nums!}',
+                child: Text('전화번호 : ${item.phoneNumber}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 13),
