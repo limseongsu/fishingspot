@@ -7,7 +7,7 @@
 
 import 'dart:convert';
 
-import 'package:fishingspot/repository/fishing_api.dart';
+import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 

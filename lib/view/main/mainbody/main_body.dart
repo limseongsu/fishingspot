@@ -1,14 +1,22 @@
-import 'package:fishingspot/data/model/place_model.dart';
 import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:fishingspot/view/main/maincard/list_cards.dart';
-import 'package:fishingspot/viewmodel/location_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'mainbodyitems/carousel_slider.dart';
 
-class MainBody extends StatelessWidget {
+class MainBody extends StatefulWidget {
+
+
+
+  @override
+  State<MainBody> createState() => _MainBodyState();
+}
+
+class _MainBodyState extends State<MainBody> {
+  // var fishing = <Items>[];
   final apiViewModel = Get.find<ApiViewModel>();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,7 @@ class MainBody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top:5.0,left: 5),
             child: Text(
-              ' 목록', //Todo 몇 km 인지 확인
+              '목록', //Todo 몇 km 인지 확인
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
             ),
           ),

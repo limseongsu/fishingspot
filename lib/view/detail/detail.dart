@@ -1,9 +1,8 @@
-import 'package:fishingspot/data/model/place_model.dart';
-import 'package:fishingspot/viewmodel/api_view_model.dart';
-import 'package:fishingspot/repository/fishing_api.dart';
+
+import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:fishingspot/view/map/google_map.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 
 class DetailPage extends StatefulWidget {
@@ -20,6 +19,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0XFFC9CFFF),
       appBar: AppBar(
         title: Text('${widget.item.fshlcNm}'),
       ),

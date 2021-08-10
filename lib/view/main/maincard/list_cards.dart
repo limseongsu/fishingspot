@@ -14,15 +14,8 @@ class ListCards extends StatefulWidget {
 
 class _ListCardsState extends State<ListCards> {
   final repository = Get.find<ApiViewModel>();
-  final location = Get.find<LocationViewModel>();
 
   ScrollController _controller = ScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-    repository.fishing;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +37,26 @@ class _ListCardsState extends State<ListCards> {
                     Get.to(DetailPage(repository.fishing[index]));
                   },
                   child: Card(
+                    color: Colors.white,
                     child: Column(
                       children: [
-                        ListTile(
-                          title: Text('${repository.fishing[index].fshlcNm}'),
-                          subtitle: Text('${repository.fishing[index].useCharge}'),
-                          trailing: FavoriteButton(
-                              isFavorite: false,
-                            iconColor: Colors.red,
-                              valueChanged: (){
-                          }),
+                    Container(
+                    decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [Color(0Xff60B1FF),Color(0XFF60DCFF)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight),
+                  ),
+                          child: ListTile(
+                            title: Text('${repository.fishing[index].fshlcNm}'),
+                            subtitle: Text('${repository.fishing[index].useCharge}'),
+                            trailing: FavoriteButton(
+                                isFavorite: false,
+                              iconColor: Colors.red,
+                                valueChanged: (){
+
+                            }),
+                          ),
                         ),
                       ],
                     ),

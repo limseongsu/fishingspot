@@ -1,6 +1,6 @@
 
 import 'package:fishingspot/viewmodel/api_view_model.dart';
-import 'package:fishingspot/repository/fishing_api.dart';
+import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:fishingspot/view/detail/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,14 +19,14 @@ Card SliderCard(Items item) {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           gradient: LinearGradient(
-              colors: [Color(0XFF0052D4), Color(0Xff9CECFB)],
+              colors: [Color(0Xff60B1FF),Color(0XFF60DCFF)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight),
         ),
-        width: 400,
-        height: 160,
+        width: 450,
+        height: 200,
         child: Padding(
-          padding: const EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

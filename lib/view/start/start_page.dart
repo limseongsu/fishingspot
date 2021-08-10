@@ -31,11 +31,11 @@ class StartPage extends StatelessWidget {
             ),
           ),
           ElevatedButton(onPressed: (){
-            print('btn 1 : ${apiViewModel.fishing}');
-            print('btn 1 : ${apiViewModel.api()}');
+            print(apiViewModel.fishing[0].fshlcNm);
+
           }, child: Text('')),
           ElevatedButton(onPressed: (){
-            print('btn 2 : ${apiViewModel.ftlist}');
+            print('btn 2 : ${apiViewModel.fishing}');
           }, child: Text('')),
           ElevatedButton(onPressed: (){}, child: Text('')),
 

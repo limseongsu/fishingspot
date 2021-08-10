@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'package:fishingspot/repository/fishing_api.dart';
+import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:fishingspot/viewmodel/api_view_model.dart';
-import 'package:fishingspot/viewmodel/location_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -37,7 +36,7 @@ class GoogleMapPageState extends State<GoogleMapPage> {
 
   @override
   Widget build(BuildContext context) {
-    final locate = Get.find<LocationViewModel>();
+    final locate = Get.find<ApiViewModel>();
 
     return Scaffold(
       body: GoogleMap(

@@ -1,14 +1,19 @@
 import 'package:fishingspot/viewmodel/api_view_model.dart';
-import 'package:fishingspot/viewmodel/location_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'view/splashscreen/splash_page.dart';
 
 
 
-void main() {
+void main() async {
+  // final locationViewModel = LocationViewModel();
+  // var location = await locationViewModel.fetch();
+  //
+  // if (location == null) {
+  // }
+  // Get.put<ApiViewModel>(ApiViewModel);
   Get.put<ApiViewModel>(ApiViewModel());
-  Get.put<LocationViewModel>(LocationViewModel());
+  // Get.put<LocationViewModel>(LocationViewModel());
   runApp(
       GetMaterialApp(
           debugShowCheckedModeBanner: false,

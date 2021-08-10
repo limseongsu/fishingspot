@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFFEEFAFF),
+      backgroundColor: Colors.white,
       appBar: NewGradientAppBar(
         title: Text(
           '어 항',
@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
         gradient:
             // appbar gradient
-            LinearGradient(colors: [Color(0XFF0052D4), Color(0Xff9CECFB)]),
+            LinearGradient(colors: [Color(0Xff60B1FF),Color(0XFF60DCFF)]),
       ),
       bottomNavigationBar: FancyBottomBar(
         selectedIndex: apiViewModel.selected,

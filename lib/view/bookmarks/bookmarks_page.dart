@@ -1,7 +1,5 @@
-import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:fishingspot/view/main/maincard/list_cards.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class BookMarksPage extends StatefulWidget {
   @override
@@ -13,7 +11,7 @@ class _BookMarksPageState extends State<BookMarksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFFEEFAFF),
+      backgroundColor: Colors.white,
       body: ListCards(),
     );
   }
