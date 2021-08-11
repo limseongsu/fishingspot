@@ -34,29 +34,29 @@ Card SliderCard(Items item) {
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold))),
               SizedBox(height: 5),
               Padding(
-                padding: const EdgeInsets.only(left: 35),
+                padding: const EdgeInsets.only(left: 25),
                 child: Text('주소 : ${item.rdnmadr}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
-                padding: const EdgeInsets.only(left: 35),
+                padding: const EdgeInsets.only(left: 25),
                 child: Text('유형 : ${item.fshlcType}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
-                padding: const EdgeInsets.only(left: 35),
+                padding: const EdgeInsets.only(left: 25),
                 child: Text('가격 : ${item.useCharge}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
-                padding: const EdgeInsets.only(left: 35),
+                padding: const EdgeInsets.only(left: 25),
                 child: Text('전화번호 : ${item.phoneNumber}',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
-              SizedBox(height: 13),
+              SizedBox(height: 30),
               Center(
                 child: Text(
                   '※정보가 변동되었을 수 있습니다.',

@@ -40,7 +40,7 @@ class _MainBodyState extends State<MainBody> {
             Text('전체 목록',
             style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
             ),
-            ListCards(),
+            ListCards(apiViewModel.fishing),
           ],
         ),
       ),

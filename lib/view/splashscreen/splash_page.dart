@@ -1,6 +1,8 @@
 import 'package:fishingspot/view/start/start_page.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
+import 'package:fishingspot/viewmodel/api_view_model.dart';
+import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -10,7 +12,13 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  // final placeRepository = Get.find<FakeGet>();
+
+  @override
+  void initState() {
+    super.initState();
+    Get.find<ApiViewModel>().api();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

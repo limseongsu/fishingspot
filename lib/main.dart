@@ -4,16 +4,9 @@ import 'package:get/get.dart';
 import 'view/splashscreen/splash_page.dart';
 
 
-
 void main() async {
-  // final locationViewModel = LocationViewModel();
-  // var location = await locationViewModel.fetch();
-  //
-  // if (location == null) {
-  // }
-  // Get.put<ApiViewModel>(ApiViewModel);
+  WidgetsFlutterBinding.ensureInitialized();
   Get.put<ApiViewModel>(ApiViewModel());
-  // Get.put<LocationViewModel>(LocationViewModel());
   runApp(
       GetMaterialApp(
           debugShowCheckedModeBanner: false,
@@ -30,11 +23,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  @override
-  void initState() {
-    super.initState();
-
-  }
 
   // final placeRepository = Get.find<FakeGet>();
   @override

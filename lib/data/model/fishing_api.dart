@@ -155,10 +155,9 @@ class Items {
   String? _institutionNm;
   String? _referenceDate;
   String? _insttCode;
-  num? _km;
+  num? meter;
 
 
-  num? get km => _km;
 
   String? get fshlcNm => _fshlcNm;
   String? get fshlcType => _fshlcType;

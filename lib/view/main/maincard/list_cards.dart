@@ -1,81 +1,80 @@
 import 'package:fishingspot/view/detail/detail.dart';
+import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
-class ListCards extends StatefulWidget {
-  @override
-  State<ListCards> createState() => _ListCardsState();
-}
+class ListCards extends StatelessWidget {
+  final  ScrollController _controller = ScrollController();
+  final List<Items> fishing;
 
-class _ListCardsState extends State<ListCards> {
-  final repository = Get.find<ApiViewModel>();
+  ListCards(this.fishing);
 
-  ScrollController _controller = ScrollController();
-
-  @override
   Widget build(BuildContext context) {
+    final viewModel = Get.find<ApiViewModel>();
+
     return AnimationLimiter(
-      child: repository.fishing.isEmpty
+      child: fishing.isEmpty
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
               controller: _controller,
               shrinkWrap: true,
-              itemCount: repository.fishing.length,
+              itemCount: fishing.length,
               itemBuilder: (BuildContext context, int index) {
-                return AnimationConfiguration.staggeredList(
-                  position: repository.selected,
-                  duration: const Duration(milliseconds: 375),
-                  child: SlideAnimation(
-                    verticalOffset: 150.0,
-                    child: FadeInAnimation(
-                      child: InkWell(
-                        onTap: () {
-                          Get.to(DetailPage(repository.fishing[index]));
-                        },
-                        child: Card(
-                          color: Colors.white,
-                          child: Column(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      colors: [
-                                        Color(0Xff60B1FF),
-                                        Color(0XFF60DCFF)
-                                      ],
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight),
-                                ),
-                                child: ListTile(
-                                  title: Text(
-                                      '${repository.fishing[index].fshlcNm}'),
-                                  subtitle: Text(
-                                      '${repository.fishing[index].useCharge}'),
-                                  trailing: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        repository.bookMark(index);
-                                      });
-                                    },
-                                    icon: Icon(Icons.favorite_border,
-                                        color:
-                                            repository.bookMarks.contains(index)
-                                                ? Colors.red
-                                                : Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                return Obx(
+                  () => FishingTile(fishing[index],
+                      viewModel.bookMarks.contains(fishing[index].fshlcNm),
+                      bookmarkPressed: (name) {
+                    viewModel.bookMark(name);
+                  }),
                 );
               },
             ),
+    );
+  }
+}
+
+class FishingTile extends StatelessWidget {
+  final Items fishing;
+  final bool isBookmarked;
+  final Function(String)? bookmarkPressed;
+
+  FishingTile(this.fishing, this.isBookmarked, {this.bookmarkPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Get.to(DetailPage(fishing));
+      },
+      child: Card(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0Xff60B1FF), Color(0XFF60DCFF)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight),
+              ),
+              child: ListTile(
+                title: Text('${fishing.fshlcNm}'),
+                subtitle:
+                    Text('${fishing.useCharge} ${fishing.meter! / 1000.0}'),
+                trailing: IconButton(
+                  onPressed: () {
+                    bookmarkPressed?.call(fishing.fshlcNm!);
+                  },
+                  icon: Icon(Icons.favorite_border,
+                      color: isBookmarked ? Colors.red : Colors.white),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
