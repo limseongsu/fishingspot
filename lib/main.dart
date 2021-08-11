@@ -7,7 +7,7 @@ import 'view/splashscreen/splash_page.dart';
 
 void main() async {
   // final locationViewModel = LocationViewModel();
-  // var location = await locationViewModel.fetch();
+  // var location = await locationfetch();
   //
   // if (location == null) {
   // }

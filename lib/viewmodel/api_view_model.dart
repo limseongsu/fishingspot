@@ -10,14 +10,17 @@ class ApiViewModel extends GetxController {
   final _locationRepository = LocationRepository();
   final distance = Distance();
   int selected = 0;
-  late Set _bookMarks;
   List<Items> _fishing = [];
   Position? position;
   bool isLoading = true;
 
   List<Items> get fishing => _fishing;
 
-  Set get bookMarks => _bookMarks;
+  final bookMarks = <String>{}.obs;
+
+  List<Items> get favoriteFishing {
+    return _fishing.where((e) => bookMarks.contains(e.fshlcNm)).toList();
+  }
 
   // List<num> _ftlist = [];
   //
@@ -28,16 +31,14 @@ class ApiViewModel extends GetxController {
   ApiViewModel() {
     api();
     current();
-    update();
   }
 
-  void bookMark(int index)  {
-    if(_bookMarks.contains(index)){
-      _bookMarks.remove(index);
+  void bookMark(String name)  {
+    if(bookMarks.contains(name)){
+      bookMarks.remove(name);
     }else {
-      _bookMarks.add(index);
+      bookMarks.add(name);
     }
-    update();
   }
 
   Future<Position?> current() async {
