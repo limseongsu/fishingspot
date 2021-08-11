@@ -23,11 +23,19 @@ void main() async {
 
 class MyApp extends StatefulWidget {
 
+
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
+
   // final placeRepository = Get.find<FakeGet>();
   @override
   Widget build(BuildContext context) {

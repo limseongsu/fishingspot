@@ -1,10 +1,9 @@
-import 'package:fishingspot/viewmodel/api_view_model.dart';
+import 'package:fancy_bar/fancy_bar.dart';
 import 'package:fishingspot/view/bookmarks/bookmarks_page.dart';
-import 'package:fishingspot/viewmodel/location_view_model.dart';
+import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
-import 'package:fancy_bar/fancy_bar.dart';
 import 'mainbody/main_body.dart';
 
 class MainPage extends StatefulWidget {
@@ -36,6 +35,7 @@ class _MainPageState extends State<MainPage> {
       ),
       bottomNavigationBar: FancyBottomBar(
         selectedIndex: apiViewModel.selected,
+
         onItemSelected: (int index) {
           setState(() {
             apiViewModel.selected = index;

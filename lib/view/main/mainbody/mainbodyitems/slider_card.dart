@@ -1,5 +1,3 @@
-
-import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:fishingspot/view/detail/detail.dart';
 import 'package:flutter/material.dart';

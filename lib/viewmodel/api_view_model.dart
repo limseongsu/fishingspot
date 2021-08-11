@@ -10,18 +10,35 @@ class ApiViewModel extends GetxController {
   final _locationRepository = LocationRepository();
   final distance = Distance();
   int selected = 0;
-  int _bookmarks = 0;
+  late Set _bookMarks;
   List<Items> _fishing = [];
   Position? position;
   bool isLoading = true;
 
   List<Items> get fishing => _fishing;
+
+  Set get bookMarks => _bookMarks;
+
   // List<num> _ftlist = [];
   //
   // List<num> get ftlist => _ftlist;
 
-  int get bookmarks => _bookmarks;
 
+
+  ApiViewModel() {
+    api();
+    current();
+    update();
+  }
+
+  void bookMark(int index)  {
+    if(_bookMarks.contains(index)){
+      _bookMarks.remove(index);
+    }else {
+      _bookMarks.add(index);
+    }
+    update();
+  }
 
   Future<Position?> current() async {
     position = await _locationRepository.getCurrentLocation();
@@ -30,21 +47,11 @@ class ApiViewModel extends GetxController {
     return position;
   }
 
-  ApiViewModel() {
-    api();
-    current();
-    update();
-  }
 
   void seleted(int index) {
     selected = index;
     update();
   }
-
-  // Future bookMarks(int index) async {
-  //   _bookmarks = await index;
-  //   update();
-  // }
 
   Future<List<Items>> api() async {
     var uri = Uri.parse(
