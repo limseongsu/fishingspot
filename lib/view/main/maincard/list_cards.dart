@@ -60,7 +60,7 @@ class FishingTile extends StatelessWidget {
               ),
               child: ListTile(
                 title: Text('${fishing.fshlcNm}'),
-                subtitle: Text('${fishing.useCharge}'),
+                subtitle: Text('${fishing.useCharge} ${fishing.meter! / 1000.0}'),
                 trailing: IconButton(
                   onPressed: () {
                     bookmarkPressed?.call(fishing.fshlcNm!);

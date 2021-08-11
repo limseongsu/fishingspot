@@ -6,6 +6,7 @@ import 'view/splashscreen/splash_page.dart';
 
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   // final locationViewModel = LocationViewModel();
   // var location = await locationfetch();
   //
