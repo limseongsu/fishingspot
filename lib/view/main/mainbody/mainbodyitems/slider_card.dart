@@ -17,7 +17,7 @@ Card SliderCard(Items item) {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           gradient: LinearGradient(
-              colors: [Color(0Xff60B1FF),Color(0XFF60DCFF)],
+              colors: [Color(0Xff60B1FF), Color(0XFF60DCFF)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight),
         ),
@@ -30,31 +30,35 @@ Card SliderCard(Items item) {
             children: [
               Center(
                   child: Text('${item.fshlcNm}',
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold))),
+                      style: TextStyle(
+                          fontSize: 25, fontWeight: FontWeight.bold))),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: Text('주소 : ${item.rdnmadr}',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: Text('유형 : ${item.fshlcType}',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: Text('가격 : ${item.useCharge}',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: Text('전화번호 : ${item.phoneNumber}',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w900)),
               ),
               SizedBox(height: 30),
               Center(

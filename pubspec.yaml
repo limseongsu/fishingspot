@@ -37,9 +37,9 @@ dependencies:
   fancy_bar: ^2.0.0 # bottom navigation bar animation
   flutter_staggered_animations: ^1.0.0 #list view animation
   google_maps_flutter: ^2.0.6
-  favorite_button: ^0.0.4
   latlong2: ^0.8.0
-
+  get_storage: ^2.0.3
+  curved_navigation_bar: ^1.0.1
 
 dev_dependencies:
   flutter_test:

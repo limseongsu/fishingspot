@@ -1,5 +1,5 @@
-import 'package:fishingspot/view/detail/detail.dart';
 import 'package:fishingspot/data/model/fishing_api.dart';
+import 'package:fishingspot/view/main/maincard/fishing_tile.dart';
 import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -13,10 +13,9 @@ class ListCards extends StatelessWidget {
 
   Widget build(BuildContext context) {
     final viewModel = Get.find<ApiViewModel>();
-
     return AnimationLimiter(
       child: fishing.isEmpty
-          ? Center(child: CircularProgressIndicator())
+          ? Center(child: Text(''))
           : ListView.builder(
               controller: _controller,
               shrinkWrap: true,
@@ -35,46 +34,4 @@ class ListCards extends StatelessWidget {
   }
 }
 
-class FishingTile extends StatelessWidget {
-  final Items fishing;
-  final bool isBookmarked;
-  final Function(String)? bookmarkPressed;
 
-  FishingTile(this.fishing, this.isBookmarked, {this.bookmarkPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Get.to(DetailPage(fishing));
-      },
-      child: Card(
-        color: Colors.white,
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Color(0Xff60B1FF), Color(0XFF60DCFF)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight),
-              ),
-              child: ListTile(
-                title: Text('${fishing.fshlcNm}'),
-                subtitle:
-                    Text('${fishing.useCharge} ${fishing.meter! / 1000.0}'),
-                trailing: IconButton(
-                  onPressed: () {
-                    bookmarkPressed?.call(fishing.fshlcNm!);
-                  },
-                  icon: Icon(Icons.favorite_border,
-                      color: isBookmarked ? Colors.red : Colors.white),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

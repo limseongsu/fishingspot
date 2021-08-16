@@ -1,4 +1,4 @@
-import 'package:fancy_bar/fancy_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:fishingspot/view/bookmarks/bookmarks_page.dart';
 import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:flutter/material.dart';
@@ -18,37 +18,63 @@ class _MainPageState extends State<MainPage> {
     MainBody(),
     BookMarksPage(),
   ];
+  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffDCF9FF),
       appBar: NewGradientAppBar(
         title: Text(
-          '어 항',
-          style: TextStyle(fontSize: 25, color: Colors.white),
+          '어      항',
+          style: TextStyle(
+              fontSize: 25, color: Colors.black, fontWeight: FontWeight.w900),
         ),
         centerTitle: true,
         gradient:
             // appbar gradient
-            LinearGradient(colors: [Color(0Xff60B1FF),Color(0XFF60DCFF)]),
+            LinearGradient(colors: [Color(0Xff60B1FF), Color(0XFF60DCFF)]),
       ),
-      bottomNavigationBar: FancyBottomBar(
-        selectedIndex: apiViewModel.selected,
-
-        onItemSelected: (int index) {
+      bottomNavigationBar: CurvedNavigationBar(
+        color: Color(0Xff60B1FF),
+        animationDuration: Duration(milliseconds: 300),
+        animationCurve: Curves.linear,
+        backgroundColor: Color(0XFFE1FDFF),
+        buttonBackgroundColor: Color(0XFFC9FDFF),
+        height: 55,
+        key: _bottomNavigationKey,
+        items: <Widget>[
+          Icon(
+            Icons.home,
+            size: 25,
+          ),
+          Icon(
+            Icons.bookmark,
+            size: 25,
+          ),
+        ],
+        onTap: (int index) {
           setState(() {
             apiViewModel.selected = index;
           });
         },
-        items: [
-          FancyItem(
-              textColor: Colors.black54, title: '홈', icon: Icon(Icons.home)),
-          FancyItem(
-              textColor: Colors.black54, title: '북마크', icon: Icon(Icons.home)),
-        ],
       ),
       body: pages[apiViewModel.selected],
     );
   }
 }
+// FancyBottomBar(
+// type: FancyType.FancyV1,
+// selectedIndex: apiViewModel.selected,
+// onItemSelected: (int index) {
+// setState(() {
+// apiViewModel.selected = index;
+// });
+// },
+// items: [
+// FancyItem(
+// textColor:  Colors.black, title: '홈', icon: Icon(Icons.home)),
+// FancyItem(
+// textColor: Colors.black, title: '북마크', icon: Icon(Icons.bookmark)),
+// ],
+// ),

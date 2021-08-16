@@ -5,15 +5,15 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:latlong2/latlong.dart';
-
+import 'package:get_storage/get_storage.dart';
 
 class ApiViewModel extends GetxController {
   final _locationRepository = LocationRepository();
   final distance = Distance();
+  final userdata = GetStorage();
   int selected = 0;
   List<Items> _fishing = [];
   bool isLoading = true;
-
   List<Items> get fishing => _fishing;
 
   final bookMarks = <String>{}.obs;
@@ -41,8 +41,6 @@ class ApiViewModel extends GetxController {
     if (position == null) {
       position = await _locationRepository.getCurrentLocation();
     }
-
-
     var uri = Uri.parse(
         'http://api.data.go.kr/openapi/tn_pubr_public_fshlc_api?serviceKey=yZryteylroOPylwMo3nICWa%2BSGNEuPoH58aijP%2BvG91RjxkJzd0WNLQcfF6O%2FrngdeBEfu75WjauflOu7d4CWQ%3D%3D&pageNo=0&numOfRows=100&type=json');
     var response = await http.get(uri);
@@ -54,8 +52,10 @@ class ApiViewModel extends GetxController {
           LatLng(position!.latitude, position.longitude),
           LatLng(double.parse('${item.latitude ?? 0}'),
               double.parse('${item.longitude ?? 0}')));
-      item.meter = meter;
+        item.meter = meter;
     });
+      _fishing.sort((a, b) => a.meter!.compareTo(b.meter!));
+
     return _fishing;
   }
 

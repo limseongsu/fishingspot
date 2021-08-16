@@ -20,29 +20,33 @@ class _MainBodyState extends State<MainBody> {
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
-      padding: const EdgeInsets.only(top:8.0),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //TODO 드랍다운 메뉴 만들기
-            Padding(
-              padding: const EdgeInsets.only(top:5,left: 5),
-              child: Text(
-                '목록', //Todo 몇 km 인지 확인
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          //TODO 드랍다운 메뉴 만들기
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 10,bottom: 10),
+                child: Text(
+                  '목록', //Todo 몇 km 인지 확인
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                ),
               ),
-            ),
-            Divider(),
-            Carousel(apiViewModel),
-            Divider(),
-            Text('전체 목록',
+            ],
+          ),
+          Divider(color: Colors.grey),
+          Carousel(apiViewModel),
+          Padding(
+            padding: const EdgeInsets.only(top:8.0,bottom: 8),
+            child: Text('가까운 순서',
             style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
             ),
-            ListCards(apiViewModel.fishing),
-          ],
-        ),
+          ),
+          Divider(color: Colors.grey),
+          ListCards(apiViewModel.fishing),
+        ],
       ),
     );
   }
