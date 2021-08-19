@@ -13,7 +13,7 @@ class _BookMarksPageState extends State<BookMarksPage> {
   Widget build(BuildContext context) {
     final viewModel = Get.find<ApiViewModel>();
     return Scaffold(
-      backgroundColor: Color(0xffDCF9FF),
+      backgroundColor: Colors.white,
       body: ListCards(viewModel.favoriteFishing),
     );
   }

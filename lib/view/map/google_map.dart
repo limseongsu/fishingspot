@@ -56,10 +56,11 @@ class GoogleMapPageState extends State<GoogleMapPage> {
       floatingActionButton: Align(
         alignment: Alignment.bottomLeft,
         child: Padding(
-          padding: const EdgeInsets.only(left:18.0),
+          padding: const EdgeInsets.only(left:18.0,bottom: 0),
           child: FloatingActionButton.extended(
             onPressed: _goToTheLake,
-            label: Text('go!'),
+            label: Text('목적지',style: TextStyle(color: Colors.black),),
+            backgroundColor: Colors.white,
           ),
         ),
       ),

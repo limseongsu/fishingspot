@@ -3,7 +3,6 @@ import 'package:fishingspot/view/bookmarks/bookmarks_page.dart';
 import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'mainbody/main_body.dart';
 
 class MainPage extends StatefulWidget {
@@ -23,25 +22,24 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffDCF9FF),
-      appBar: NewGradientAppBar(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 2,
         title: Text(
           '어      항',
           style: TextStyle(
               fontSize: 25, color: Colors.black, fontWeight: FontWeight.w900),
         ),
         centerTitle: true,
-        gradient:
-            // appbar gradient
-            LinearGradient(colors: [Color(0Xff60B1FF), Color(0XFF60DCFF)]),
+        backgroundColor: Colors.white,
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        color: Color(0Xff60B1FF),
+        color: Colors.white,
         animationDuration: Duration(milliseconds: 300),
         animationCurve: Curves.linear,
-        backgroundColor: Color(0XFFE1FDFF),
-        buttonBackgroundColor: Color(0XFFC9FDFF),
-        height: 55,
+        backgroundColor: Colors.black12,
+        buttonBackgroundColor: Colors.white,
+        height: 50,
         key: _bottomNavigationKey,
         items: <Widget>[
           Icon(

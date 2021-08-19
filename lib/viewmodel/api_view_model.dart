@@ -7,21 +7,28 @@ import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:get_storage/get_storage.dart';
 
+
 class ApiViewModel extends GetxController {
   final _locationRepository = LocationRepository();
   final distance = Distance();
-  final userdata = GetStorage();
   int selected = 0;
   List<Items> _fishing = [];
   bool isLoading = true;
   List<Items> get fishing => _fishing;
+  final dataList = GetStorage();
 
-  final bookMarks = <String>{}.obs;
+  var bookMarks = <String>{}.obs;
 
   List<Items> get favoriteFishing {
     return _fishing.where((e) => bookMarks.contains(e.fshlcNm)).toList();
   }
 
+  // ApiViewModel() {
+  //   if (dataList.read('bookmark') != null) {
+  //     Set<String> set = dataList.read<List<String>>('bookmark')!.toSet();
+  //     bookMarks = set.obs;
+  //   }
+  // }
 
   void bookMark(String name) {
     if (bookMarks.contains(name)) {
@@ -29,6 +36,7 @@ class ApiViewModel extends GetxController {
     } else {
       bookMarks.add(name);
     }
+    // dataList.write('bookmark', bookMarks.toList());
   }
 
 
@@ -36,7 +44,7 @@ class ApiViewModel extends GetxController {
     selected = index;
     update();
   }
-
+  //모델부분
   Future<List<Items>> api({Position? position}) async {
     if (position == null) {
       position = await _locationRepository.getCurrentLocation();
