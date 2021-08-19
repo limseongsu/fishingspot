@@ -13,24 +13,22 @@ class ListCards extends StatelessWidget {
 
   Widget build(BuildContext context) {
     final viewModel = Get.find<ApiViewModel>();
-    return AnimationLimiter(
-      child: fishing.isEmpty
-          ? Center(child: Text(''))
-          : ListView.builder(
-              controller: _controller,
-              shrinkWrap: true,
-              itemCount: fishing.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Obx(
-                  () => FishingTile(fishing[index],
-                      viewModel.bookMarks.contains(fishing[index].fshlcNm),
-                      bookmarkPressed: (name) {
-                    viewModel.bookMark(name);
-                  }),
-                );
-              },
-            ),
-    );
+    return fishing.isEmpty
+        ? Center(child: Text(''))
+        : ListView.builder(
+            controller: _controller,
+            shrinkWrap: true,
+            itemCount: fishing.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Obx(
+                () => FishingTile(fishing[index],
+                    viewModel.bookMarks.contains(fishing[index].fshlcNm),
+                    bookmarkPressed: (name) {
+                  viewModel.bookMark(name);
+                }),
+              );
+            },
+          );
   }
 }
 

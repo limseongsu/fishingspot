@@ -22,14 +22,14 @@ class FishingTile extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [Color(0Xff60B1FF),Color(0XFF60DCFF)],
+                gradient: LinearGradient(colors: [Colors.white10,Colors.black12],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight),
               ),
               child: ListTile(
-                title: Text('${fishing.fshlcNm}'),
+                title: Text('${fishing.fshlcNm ?? '정보없음'}'),
                 subtitle:
-                Text('가격: ${fishing.useCharge}원\n거리: ${fishing.meter! / 1000}km'),
+                Text('가격: ${fishing.useCharge ?? '정보없음'}\n거리: ${fishing.meter! / 1000}km'),
                 trailing: IconButton(
                   onPressed: () {
                     bookmarkPressed?.call(fishing.fshlcNm!);
