@@ -12,7 +12,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   @override
   void initState() {
     super.initState();
@@ -25,11 +24,18 @@ class _SplashPageState extends State<SplashPage> {
       body: EasySplashScreen(
         backgroundImage: AssetImage('assets/fishing.jpg'),
         //중간 로고를 꼭 넣어야되서 투명처리해서 안보이게 함.
-        logo: Image.asset('assets/fishing.jpg', color: Colors.transparent,),
+        logo: Image.asset(
+          'assets/fishing.jpg',
+          color: Colors.transparent,
+        ),
         navigator: StartPage(),
         durationInSeconds: 4,
         showLoader: true,
-        loadingText: Text('로딩중',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+        loadingText: Text(
+          '로딩중',
+          style: TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+        ),
         loaderColor: Colors.white,
         loadingTextPadding: EdgeInsets.only(bottom: 250),
       ),
