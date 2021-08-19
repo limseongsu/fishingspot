@@ -36,7 +36,7 @@ class _MainBodyState extends State<MainBody> {
               ),
             ],
           ),
-          Divider(color: Colors.grey),
+          Divider(color: Colors.grey[300]),
           Carousel(apiViewModel),
           Padding(
             padding: const EdgeInsets.only(top:8.0,bottom: 8),
@@ -44,7 +44,7 @@ class _MainBodyState extends State<MainBody> {
             style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
             ),
           ),
-          Divider(color: Colors.grey),
+          Divider(color: Colors.grey[300]),
           ListCards(apiViewModel.fishing),
         ],
       ),
