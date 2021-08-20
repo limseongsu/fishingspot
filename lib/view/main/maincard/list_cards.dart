@@ -2,7 +2,6 @@ import 'package:fishingspot/data/model/fishing_api.dart';
 import 'package:fishingspot/view/main/maincard/fishing_tile.dart';
 import 'package:fishingspot/viewmodel/api_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
 class ListCards extends StatelessWidget {
@@ -13,6 +12,7 @@ class ListCards extends StatelessWidget {
 
   Widget build(BuildContext context) {
     final viewModel = Get.find<ApiViewModel>();
+
     return fishing.isEmpty
         ? Center(child: Text(''))
         : ListView.builder(
@@ -22,7 +22,7 @@ class ListCards extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return Obx(
                 () => FishingTile(fishing[index],
-                    viewModel.bookMarks.contains(fishing[index].fshlcNm),
+                    viewModel.bookMarks[fishing[index].fshlcNm] ?? false,
                     bookmarkPressed: (name) {
                   viewModel.bookMark(name);
                 }),
