@@ -11,32 +11,27 @@ import 'package:get_storage/get_storage.dart';
 class ApiViewModel extends GetxController {
   final _locationRepository = LocationRepository();
   final distance = Distance();
+  final data = GetStorage();
+
   int selected = 0;
   List<Items> _fishing = [];
-  bool isLoading = true;
+
   List<Items> get fishing => _fishing;
-  final dataList = GetStorage();
+  bool isLoading = true;
 
-  var bookMarks = <String>{}.obs;
+  RxMap<String, bool> bookMarks = <String, bool>{}.obs;
 
-  List<Items> get favoriteFishing {
-    return _fishing.where((e) => bookMarks.contains(e.fshlcNm)).toList();
+  ApiViewModel(){
+    bookMarks = RxMap<String, bool>.from(Map.from(data.read('bookmarks') ?? <String, bool>{}));
   }
 
-  // ApiViewModel() {
-  //   if (dataList.read('bookmark') != null) {
-  //     Set<String> set = dataList.read<List<String>>('bookmark')!.toSet();
-  //     bookMarks = set.obs;
-  //   }
-  // }
-
+  List<Items> get favoriteFishing {
+    return _fishing.where((e) => bookMarks[e.fshlcNm] ?? false).toList();
+  }
   void bookMark(String name) {
-    if (bookMarks.contains(name)) {
-      bookMarks.remove(name);
-    } else {
-      bookMarks.add(name);
-    }
-    // dataList.write('bookmark', bookMarks.toList());
+    final currentFavorite = bookMarks[name] ?? false;
+    bookMarks[name] = !currentFavorite;
+    data.write('bookmarks', bookMarks);
   }
 
 
