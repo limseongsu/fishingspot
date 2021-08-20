@@ -45,7 +45,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 SizedBox(height: 10),
                 Text(widget.item.useCharge != 'null' ?
-                  '가격 : ${widget.item.useCharge}원' : '가격 : 정보 없음',
+                  '가격 : ${widget.item.useCharge}' : '가격 : 정보 없음',
                   style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
                 SizedBox(height: 10),
